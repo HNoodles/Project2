@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/allCss.css">
+    <title>Profile</title>
+</head>
+<body>
+<header class="profile">
+    <div id="top">
+        <span id="welcome">Welcome to <a href="index.html">Art Store</a></span>
+        <span id="spLog"><a href="javascript:openMessage('signInForm','mask')">Sign in</a> or <a href="javascript:openMessage('signUpForm','mask')">Sign up</a></span>
+        <span id="condition">
+            <a id="aSignIn" href="javascript:openMessage('signInForm','mask')"><img src="images/icons/profile.png" width="20" height="20"/>Not Logged In</a>
+            <a id="aAccount" href="profile.html"><img src="images/icons/profile.png" width="20" height="20"/>HNoodles1</a>
+            <a id="cart" href="cart.html"><img src="images/icons/cart.png" width="20" height="20"/>My Cart</a>
+            <a id="aLogOut" href="javascript:logOut()"><img src="images/icons/logout.png" width="20" height="20"/>Sign out</a>
+        </span>
+        <div class="clear"></div>
+    </div>
+    <div id="second">
+        <a id="logo" href="index.html">Art Store</a>
+        <form id="formSearch" method="post">
+            <input type="text" id="inputSearch" name="search" title="Search" placeholder="Search here"/>
+            <a href="search.html"><input type="button" id="btSearch" value="Search"/></a>
+        </form>
+    </div>
+</header>
+<nav>
+    <a id="index" href="index.html">Front page</a>
+    <a id="search" href="search.html">Search</a>
+    <a id="details" href="details.html">Details</a>
+</nav>
+<div id="signInForm" class="form">
+    <form id="signIn" class="popUp" method="post" name="signIn" action="">
+        <p id="pSignInUserName">
+            <label for="signInUserName" id="lbSignInUserName">Username: </label>
+            <input id="signInUserName" type="text" placeholder="Please input your username.">
+        </p>
+        <p id="pSignInPassword">
+            <label for="signInPassword" id="lbSignInPassword">Password: </label>
+            <input id="signInPassword" type="password" placeholder="Please input your password.">
+        </p>
+        <p id="pVerify">
+            <label for="verify" id="lbVerify">Verify: </label>
+            <input id="verify" type="text" placeholder="Please input verify code.">
+            <span id="code">2411</span>
+        </p>
+        <p class="button">
+            <input class="submit" id="signInSubmit" name="signInSubmit" type="button" value="Sign In" onclick="checkSignIn()">
+            <input class="cancel" id="signInCancel" name="signInCancel" type="button" value="Cancel" onclick="closeMessage('signInForm', 'mask')">
+        </p>
+    </form>
+</div>
+<div id="signUpForm" class="form">
+    <form id="signUp" class="popUp" method="post" name="signUp" action="">
+        <p id="pSignUpUserName">
+            <label for="signUpUserName" id="lbSignUpUserName">Username: </label>
+            <input id="signUpUserName" type="text" placeholder="Please input your username." onblur="checkSignUpUserName(this.value)"><br/>
+            <span id="alertUserName" class="alert"></span>
+        </p>
+        <p id="pPassword">
+            <label for="signUpPassword" id="lbSignUpPassword">Password: </label>
+            <input id="signUpPassword" type="password" placeholder="Please input your password." onblur="checkSignUpPassword(this.value)"><br/>
+            <span id="alertPassword" class="alert"></span>
+        </p>
+        <p id="pPasswordConfirm">
+            <label for="signUpPasswordConfirm" id="lbSignUpPasswordConfirm">Confirm password: </label>
+            <input id="signUpPasswordConfirm" type="password" placeholder="Please confirm your password." onblur="checkSignUpPasswordConfirm(this.value)"><br/>
+            <span id="alertPasswordConfirm" class="alert"></span>
+        </p>
+        <p id="pPhone">
+            <label for="phone" id="lbPhone">Phone: </label>
+            <input id="phone" type="text" placeholder="Please input your phone. " onblur="checkSignUpPhone(this.value)"><br/>
+            <span id="alertPhone" class="alert"></span>
+        </p>
+        <p class="button">
+            <input class="submit" id="signUpSubmit" name="signUpSubmit" type="button" value="Sign Up" onclick="checkSignUp()">
+            <input class="cancel" id="signUpCancel" name="signUpCancel" type="button" value="Cancel" onclick="closeMessage('signUpForm', 'mask')">
+        </p>
+    </form>
+</div>
+<div id="topUpForm" class="form">
+    <form id="topUp" class="popUp" name="topUp" method="post" action="">
+        <p id="pTopUp">
+            <label>Please enter the amount: </label><br/>
+            <input type="text" id="inputTopUp" name="inputTopUp" placeholder="Please enter the amount.">
+        </p>
+        <p class="button">
+            <input class="submit" id="topUpSubmit" name="topUpSubmit" type="button" value="Top Up" onclick="checkTopUp()">
+            <input class="cancel" id="topUpCancel" name="topUpCancel" type="button" value="Cancel" onclick="closeMessage('topUpForm', 'mask')">
+        </p>
+    </form>
+</div>
+<div id="mask"></div>
+<aside class="profile">
+    <table id="info">
+        <tr><td id="tdAccount">Account: </td><td id="tdAccountContent">HNoodles1</td></tr>
+        <tr><td id="tdPhone">Phone: </td><td id="tdPhoneContent">12345678910</td></tr>
+        <tr><td id="tdMail">Mail: </td><td id="tdMailContent">12345678910@fudan.edu.cn</td></tr>
+        <tr><td id="tdAddress">Address: </td><td id="tdAddressContent">Shanghai</td></tr>
+        <tr><td id="tdBalance">Balance: </td><td id="tdBalanceContent">4000.0000</td></tr>
+        <tr><td id="buttonTopUp" colspan="2"><a id="aTopUp" href="javascript:openMessage('topUpForm','mask')">Top Up</a></td></tr>
+    </table>
+</aside>
+<main class="profile">
+    <div id="uploaded">
+        <p class="head">Works I Uploaded: </p>
+        <table id="tbUploaded">
+            <thead>
+            <tr><td>Title</td><td>Artist</td><td>Introduction</td></tr>
+            </thead>
+            <tbody>
+            <tr><td>Old Guitarist</td><td>Pablo Picasso</td><td>Picasso presented The Old Guitarist as a timeless expression...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="bought">
+        <p class="head">Works I Bought: </p>
+        <table id="tbBought">
+            <thead>
+            <tr><td>No.</td><td>Title</td><td>Date</td><td>Total</td></tr>
+            </thead>
+            <tbody>
+            <tr><td>2018041701</td><td>Old Guitarist</td><td>2018.4.17</td><td>$1000.00</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="sold">
+        <p class="head">Works I Sold: </p>
+        <table id="tbSold">
+            <thead>
+            <tr><td>No.</td><td>Title</td><td>Date</td><td>Total</td></tr>
+            </thead>
+            <tbody>
+            <tr><td>2018041701</td><td>Old Guitarist</td><td>2018.4.17</td><td>$1000.00</td></tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    Produced and maintained by HNoodles in 2018
+</footer>
+<script src="js/allJs.js"></script>
+</body>
+</html>

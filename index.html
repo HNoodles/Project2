@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/allCss.css">
+    <title>Art Store</title>
+</head>
+<body class="index">
+<div id="gallery">
+    <header class="index">
+        <span id="logo"><a href="index.html">Art Store</a></span>
+        <span id="slogan">Where you find <strong>genius</strong>
+            and <strong>extraordinary</strong></span>
+    </header>
+    <nav class="index">
+        <a href="index.html">Front page</a>|<a href="search.html">Search</a>|<a href="details.html">Details</a>|<a id="aSignIn" href="javascript:openMessage('signInForm','mask')">Sign in</a><a id="aAccount" href="profile.html">HNoodles</a>|<a id="aSignUp" href="javascript:openMessage('signUpForm','mask')">Sign up</a><a id="aLogOut" href="javascript:logOut()">Log out</a>
+    </nav>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    
+    <div id="gallery1" class="bg fadeIn"></div>
+    <section id="sc1" class="hottest bg fadeIn">
+        <p class="artist">Louis David</p>
+        <p class="introduction">the official painter of Napoleon</p>
+        <a href="details.html">Learn more</a>
+    </section>
+    <div id="gallery2" class="bg"></div>
+    <section id="sc2" class="hottest bg">
+        <p class="artist">Louis David</p>
+        <p class="introduction">the Death of Socrates</p>
+        <a href="details.html">Learn more</a>
+    </section>
+    <div id="gallery3" class="bg"></div>
+    <section id="sc3" class="hottest bg">
+        <p class="artist">Louis David</p>
+        <p class="introduction">Oath of the Horatii</p>
+        <a href="details.html">Learn more</a>
+    </section>
+</div>
+<div id="signInForm" class="form">
+    <form id="signIn" class="popUp" method="post" name="signIn" action="">
+        <p id="pSignInUserName">
+            <label for="signInUserName" id="lbSignInUserName">Username: </label>
+            <input id="signInUserName" type="text" placeholder="Please input your username.">
+        </p>
+        <p id="pSignInPassword">
+            <label for="signInPassword" id="lbSignInPassword">Password: </label>
+            <input id="signInPassword" type="password" placeholder="Please input your password.">
+        </p>
+        <p id="pVerify">
+            <label for="verify" id="lbVerify">Verify: </label>
+            <input id="verify" type="text" placeholder="Please input verify code.">
+            <span id="code">2411</span>
+        </p>
+        <p class="button">
+            <input class="submit" id="signInSubmit" name="signInSubmit" type="button" value="Sign In" onclick="checkSignIn()">
+            <input class="cancel" id="signInCancel" name="signInCancel" type="button" value="Cancel" onclick="closeMessage('signInForm', 'mask')">
+        </p>
+    </form>
+</div>
+<div id="signUpForm" class="form">
+    <form id="signUp" class="popUp" method="post" name="signUp" action="">
+        <p id="pSignUpUserName">
+            <label for="signUpUserName" id="lbSignUpUserName">Username: </label>
+            <input id="signUpUserName" type="text" placeholder="Please input your username." onblur="checkSignUpUserName(this.value)"><br/>
+            <span id="alertUserName" class="alert"></span>
+        </p>
+        <p id="pPassword">
+            <label for="signUpPassword" id="lbSignUpPassword">Password: </label>
+            <input id="signUpPassword" type="password" placeholder="Please input your password." onblur="checkSignUpPassword(this.value)"><br/>
+            <span id="alertPassword" class="alert"></span>
+        </p>
+        <p id="pPasswordConfirm">
+            <label for="signUpPasswordConfirm" id="lbSignUpPasswordConfirm">Confirm password: </label>
+            <input id="signUpPasswordConfirm" type="password" placeholder="Please confirm your password." onblur="checkSignUpPasswordConfirm(this.value)"><br/>
+            <span id="alertPasswordConfirm" class="alert"></span>
+        </p>
+        <p id="pPhone">
+            <label for="phone" id="lbPhone">Phone: </label>
+            <input id="phone" type="text" placeholder="Please input your phone. " onblur="checkSignUpPhone(this.value)"><br/>
+            <span id="alertPhone" class="alert"></span>
+        </p>
+        <p class="button">
+            <input class="submit" id="signUpSubmit" name="signUpSubmit" type="button" value="Sign Up" onclick="checkSignUp()">
+            <input class="cancel" id="signUpCancel" name="signUpCancel" type="button" value="Cancel" onclick="closeMessage('signUpForm', 'mask')">
+        </p>
+    </form>
+</div>
+<div id="mask"></div>
+<main class="index">
+    <section class="top3">
+        <figure class="top3" id="firsttop3">
+            <img src="images/artists/square-medium/5.jpg"/>
+            <figcaption>
+                <p class="name">Portrait of Jacques-Louis David</p>
+                <p class="introduction">Jacques-Louis David was a French painter in the Neoclassical style,
+                    considered to be the preeminent painter of the era. In the 1780s his cerebral brand of
+                    history painting marked a change in taste away from Rococo frivolity toward a classical
+                    austerity and severity, heightened feeling chiming with the moral climate of the final years
+                    of the Ancien Régime.</p>
+                <a href="details.html">View Details</a>
+            </figcaption>
+        </figure>
+        <figure class="top3" id="secondtop3">
+            <img src="images/artists/square-medium/6.jpg"/>
+            <figcaption>
+                <p class="name">Portrait of Jacques-Louis David</p>
+                <p class="introduction">David later became an active supporter of the French Revolution and
+                    friend of Maximilien Robespierre (1758–1794), and was effectively a dictator of the arts under
+                    the French Republic. Imprisoned after Robespierre's fall from power, he aligned himself with
+                    yet another political regime upon his release, that of Napoleon I. </p>
+                <a href="details.html">View Details</a>
+            </figcaption>
+        </figure>
+        <figure class="top3" id="thirdtop3">
+            <img src="images/artists/square-medium/8.jpg"/>
+            <figcaption>
+                <p class="name">Portrait of Jacques-Louis David</p>
+                <p class="introduction">It was at this time that he developed his Empire style, notable for
+                    its use of warm Venetian colours. David had a huge number of pupils, making him the strongest
+                    influence in French art of the early 19th century, especially academic Salon painting.</p>
+                <a href="details.html">View Details</a>
+            </figcaption>
+        </figure>
+    </section>
+</main>
+<footer>
+    Produced and maintained by HNoodles in 2018
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="js/allJs.js"></script>
+</body>
+</html>
