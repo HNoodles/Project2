@@ -1,0 +1,161 @@
+/*for all*/
+body {
+    min-width: 960px;
+    font-family: "Arial", sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+a#aAccount, a#aLogOut {
+    display: none;
+}
+
+div.form {
+    display: none;
+    width: 30%;
+    text-align: center;
+    padding: 2em;
+    background-color: lightgrey;
+    position: fixed;
+    top: 25%;
+    left: 35%;
+    z-index: 10;
+}
+
+div.form p {
+    margin: 1em;
+}
+
+form.popUp label {
+    width: 80px;
+    padding: 0.5em;
+}
+
+form.popUp input {
+    width: 150px;
+    padding: 0.5em;
+}
+
+form.popUp span.alert {
+    color: red;
+}
+
+form.popUp span#code {
+    line-height: 2.5em;
+    color: white;
+    background-color: black;
+    padding: 0.5em;
+}
+
+form.popUp p.button input {
+    width: 80px;
+    padding: 1em;
+}
+
+div#mask {
+    display: none;
+    background-color: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+footer {
+    clear: both;
+    /*background-color: black;*/
+    /*color: white;*/
+    text-align: center;
+    padding: 0.5em;
+    font-family: "Monotype Corsiva", cursive;
+}
+
+header a{
+    margin: 0 0.2em;
+}
+
+header a#logo {
+    font-family: "Comic Sans MS", cursive;
+    font-size: 16pt;
+    color: black;
+}
+
+.clear {
+    clear: both;
+}
+
+div#top {
+    background-color: black;
+    color: white;
+    font-size: 12pt;
+    font-family: "Arial", sans-serif;
+    padding: 0.3em 1em;
+}
+
+div#top span {
+    margin:0.2em 0.5em;
+}
+
+div#top span#welcome a {
+    font-family: "Monotype Corsiva", cursive;
+    font-size: 16pt;
+}
+
+div#top span#welcome a:hover {
+    color: white;
+}
+
+span#condition {
+    float: right;
+}
+
+span#condition a img {
+    vertical-align: bottom;
+}
+
+span#condition a {
+    width: 10%;
+}
+
+span#condition a#aAccount {
+    display: none;
+}
+
+div#second {
+    padding: 0.5em 1em;
+    margin: 0.3em 0;
+}
+
+form#formSearch {
+    display: inline;
+    float: right;
+    padding: 0.3em 0.5em;
+}
+
+form#formSearch input {
+    padding: 0.2em;
+}
+
+nav {
+    background-color: lightgrey;
+    padding: 1em 1.5em;
+}
+
+nav a {
+    margin: 0.3em;
+    padding: 0.3em 0.5em;
+    color: black;
+}
+
+nav a:hover {
+    color: cornflowerblue;
+}

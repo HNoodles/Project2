@@ -1,0 +1,77 @@
+/*for profile*/
+aside.profile {
+    margin: 1.5em;
+    float: left;
+    width: 30%;
+}
+
+aside.profile table#info {
+    padding: 1em;
+    background-color: azure;
+    width: 100%;
+}
+
+aside.profile table#info tr {
+    line-height: 1.5em;
+}
+
+aside.profile table#info td {
+    width: 40%;
+}
+
+aside.profile table#info td#buttonTopUp {
+    text-align: right;
+    line-height: 2.5em;
+}
+
+td#buttonTopUp a#aTopUp {
+    padding: 0.5em;
+    background-color: cornflowerblue;
+    border: cornflowerblue solid 2px;
+}
+
+td#buttonTopUp a#aTopUp:hover {
+    background-color: azure;
+    color: cornflowerblue;
+}
+
+main.profile {
+    margin: 0.5em;
+    width: 60%;
+    float: left;
+}
+
+main.profile div {
+    width: 100%;
+    min-height: 200px;
+    margin-top: 1em;
+    overflow: auto;
+}
+
+main.profile div p.head {
+    padding: 3%;
+}
+
+main.profile div#uploaded {
+    background-color: lightyellow;
+}
+
+main.profile div#bought {
+    background-color: antiquewhite;
+}
+
+main.profile div#sold {
+    background-color: honeydew;
+}
+
+main.profile div table {
+    margin: 0 3% 3%;
+    width: 94%;
+    border: black solid 1px;
+}
+
+main.profile div table td {
+    padding: 3%;
+    border: black solid 1px;
+    text-align: center;
+}

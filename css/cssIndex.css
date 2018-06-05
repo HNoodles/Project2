@@ -1,0 +1,183 @@
+/*for index*/
+div#gallery {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    font-size: 12pt;
+    color: white;
+}
+
+div#gallery1 {
+    background: url("../images/works/large/005060.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+div#gallery2 {
+    background: url("../images/works/large/005040.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+div#gallery3 {
+    background: url("../images/works/large/005010.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+div.bg {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    transition:opacity 2s linear;
+    opacity:0;
+    z-index: -5;
+}
+
+div.fadeIn {
+    opacity:100;
+    filter:alpha(opacity=100);
+}
+
+section.bg {
+    transition:opacity 2s linear;
+    opacity: 0;
+    display: none;
+}
+
+section.fadeIn {
+    opacity:100;
+    filter:alpha(opacity=100);
+    display: block;
+}
+
+header.index {
+    margin: 0.3% 3%;
+    display: inline-block;
+    float: left;
+}
+
+span#logo {
+    font-family: "Comic Sans MS", cursive;
+    font-size: 14pt;
+}
+
+span#slogan {
+    font-family: "Monotype Corsiva", serif;
+}
+
+nav.index {
+    background-color: unset;
+    font-family: "Arial", sans-serif;
+    float: right;
+    margin: 1% 3%;
+    padding: 0;
+}
+
+nav.index a {
+    color: white;
+}
+
+nav.index a:hover {
+    color: cornflowerblue;
+}
+
+div#gallery a {
+    margin: 0.5em;
+}
+
+#logo a:hover {
+    color: white;
+}
+
+section.hottest {
+    position: absolute;
+    top: 40%;
+    text-align: center;
+    width: 100%;
+}
+
+div.carousel-item h1 {
+    font-family: "Gill Sans MT", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 1em;
+}
+
+div.carousel-item h3 {
+    font-family: "Brush Script MT", cursive;
+    margin: 1.5em;
+}
+
+section.hottest a {
+    font-family: "Arial", sans-serif;
+    font-size: 14pt;
+    border: white solid 2px;
+    margin: 1em;
+    padding: 0.5em;
+}
+
+section.hottest a:hover {
+    background-color: white;
+    border-color: cornflowerblue;
+}
+
+/*main.index {*/
+    /*margin:2% 2%;*/
+/*}*/
+
+section.top3 {
+    width: 100%;
+    text-align: center;
+}
+
+figure.top3 {
+    display: inline-block;
+    width: 28%;
+    max-height: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+figure#firsttop3 {
+    float: left;
+}
+
+figure#thirdtop3 {
+    float: right;
+}
+
+figure.top3 img {
+    border-radius: 50%;
+    border: cornflowerblue solid 2px;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    width: 100px;
+    height: 100px;
+}
+
+h5.name {
+    font-family: "Arial", sans-serif;
+    /*font-size: 16pt;*/
+}
+
+p.introduction {
+    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-size: 12pt;
+    font-style: italic;
+    margin-bottom: 1em;
+    height: 200px;
+    overflow: auto;
+}
+
+figure.top3 a {
+    text-decoration: none;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 0.5em;
+    border: cornflowerblue solid 2px;
+}
+
+figure.top3 a:hover {
+    background-color: white;
+    color: cornflowerblue;
+}
