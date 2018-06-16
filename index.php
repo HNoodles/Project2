@@ -28,7 +28,7 @@
             <?php
                 session_start();
 
-                if( !isset($_POST['signInUserName']) ) {
+                if(!isset($_POST['signInUserName'])) {
                     if (!isset($_SESSION['signInUserName'])) {
                         ?>
                         <li class="nav-item">
@@ -248,49 +248,72 @@ echo '<a class="carousel-control-prev" href="#carouselGallery" role="button" dat
 </div>
 
 <main class="index">
-    <div class="container-fluid my-3">
-        <div class="row text-center">
-            <div class="col-sm">
-                <figure>
-                    <img src="images/artists/square-medium/5.jpg" class="border border-primary rounded-circle"/>
-                    <figcaption>
-                        <h5 class="m-3 name">Portrait of Jacques-Louis David</h5>
-                        <p class="introduction">Jacques-Louis David was a French painter in the Neoclassical style,
-                            considered to be the preeminent painter of the era. In the 1780s his cerebral brand of
-                            history painting marked a change in taste away from Rococo frivolity toward a classical
-                            austerity and severity, heightened feeling chiming with the moral climate of the final years
-of the Ancien Régime.</p>
-                        <a class="btn btn-outline-primary" href="details.html" role="button">View Details</a>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-sm">
-                <figure>
-                    <img src="images/artists/square-medium/6.jpg" class="border border-primary rounded-circle"/>
-                    <figcaption>
-                        <h5 class="m-3 name">Portrait of Jacques-Louis David</h5>
-                        <p class="introduction">David later became an active supporter of the French Revolution and
-friend of Maximilien Robespierre (1758–1794), and was effectively a dictator of the arts under
-                            the French Republic. Imprisoned after Robespierre's fall from power, he aligned himself with
-                            yet another political regime upon his release, that of Napoleon I. </p>
-                        <a class="btn btn-outline-primary" href="details.html" role="button">View Details</a>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-sm">
-                <figure>
-                    <img src="images/artists/square-medium/8.jpg" class="border border-primary rounded-circle"/>
-                    <figcaption>
-                        <h5 class="m-3 name">Portrait of Jacques-Louis David</h5>
-                        <p class="introduction">It was at this time that he developed his Empire style, notable for
-                            its use of warm Venetian colours. David had a huge number of pupils, making him the strongest
-                            influence in French art of the early 19th century, especially academic Salon painting.</p>
-                        <a class="btn btn-outline-primary" href="details.html" role="button">View Details</a>
-                    </figcaption>
-                </figure>
-            </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div><div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+<!--    <div class="container-fluid my-3">-->
+<!--        <div class="row text-center">-->
+<!--            <div class="col-sm">-->
+<!--                <figure>-->
+<!--                    <img src="images/artists/square-medium/5.jpg" class="border border-primary rounded-circle"/>-->
+<!--                    <figcaption>-->
+<!--                        <h5 class="m-3 name">Portrait of Jacques-Louis David</h5>-->
+<!--                        <p class="introduction">Jacques-Louis David was a French painter in the Neoclassical style,-->
+<!--                            considered to be the preeminent painter of the era. In the 1780s his cerebral brand of-->
+<!--                            history painting marked a change in taste away from Rococo frivolity toward a classical-->
+<!--                            austerity and severity, heightened feeling chiming with the moral climate of the final years-->
+<!--of the Ancien Régime.</p>-->
+<!--                        <a class="btn btn-outline-primary" href="details.html" role="button">View Details</a>-->
+<!--                    </figcaption>-->
+<!--                </figure>-->
+<!--            </div>-->
+<!--            <div class="col-sm">-->
+<!--                <figure>-->
+<!--                    <img src="images/artists/square-medium/6.jpg" class="border border-primary rounded-circle"/>-->
+<!--                    <figcaption>-->
+<!--                        <h5 class="m-3 name">Portrait of Jacques-Louis David</h5>-->
+<!--                        <p class="introduction">David later became an active supporter of the French Revolution and-->
+<!--friend of Maximilien Robespierre (1758–1794), and was effectively a dictator of the arts under-->
+<!--                            the French Republic. Imprisoned after Robespierre's fall from power, he aligned himself with-->
+<!--                            yet another political regime upon his release, that of Napoleon I. </p>-->
+<!--                        <a class="btn btn-outline-primary" href="details.html" role="button">View Details</a>-->
+<!--                    </figcaption>-->
+<!--                </figure>-->
+<!--            </div>-->
+<!--            <div class="col-sm">-->
+<!--                <figure>-->
+<!--                    <img src="images/artists/square-medium/8.jpg" class="border border-primary rounded-circle"/>-->
+<!--                    <figcaption>-->
+<!--                        <h5 class="m-3 name">Portrait of Jacques-Louis David</h5>-->
+<!--                        <p class="introduction">It was at this time that he developed his Empire style, notable for-->
+<!--                            its use of warm Venetian colours. David had a huge number of pupils, making him the strongest-->
+<!--                            influence in French art of the early 19th century, especially academic Salon painting.</p>-->
+<!--                        <a class="btn btn-outline-primary" href="details.html" role="button">View Details</a>-->
+<!--                    </figcaption>-->
+<!--                </figure>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </main>
 <footer class="footer navbar navbar-dark bg-dark">
     <div class="navbar-text m-auto">Produced and maintained by HNoodles in 2018</div>
