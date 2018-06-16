@@ -2,87 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/cssReset.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cssCommon.css">
     <link rel="stylesheet" href="css/cssSearch.css">
     <title>Search</title>
 </head>
 <body>
-<header>
-    <div id="top">
-        <span id="welcome">Welcome to <a href="index.html">Art Store</a></span>
-        <span id="spLog"><a href="javascript:openMessage('signInForm','mask')">Sign in</a> or <a href="javascript:openMessage('signUpForm','mask')">Sign up</a></span>
-        <span id="condition">
-            <a id="aSignIn" href="javascript:openMessage('signInForm','mask')"><img src="images/icons/profile.png" width="20" height="20"/>Not Logged In</a>
-            <a id="aAccount" href="profile.html"><img src="images/icons/profile.png" width="20" height="20"/>HNoodles1</a>
-            <a id="cart" href="cart.html"><img src="images/icons/cart.png" width="20" height="20"/>My Cart</a>
-            <a id="aLogOut" href="javascript:logOut()"><img src="images/icons/logout.png" width="20" height="20"/>Sign out</a>
-        </span>
-        <div class="clear"></div>
-    </div>
-    <div id="second">
-        <a id="logo" href="index.html">Art Store</a>
-        <form id="formSearch" method="post">
-            <input type="text" id="inputSearch" name="search" title="Search" placeholder="Search here"/>
-            <a href="search.html"><input type="button" id="btSearch" value="Search"/></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html"><strong>Art Store</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <span class="navbar-text mx-2">Where you find <strong>genius</strong> and <strong>extraordinary</strong></span>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Front Page<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="details.html">Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="modal" data-target="#signInFormModal">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="modal" data-target="#signUpFormModal">Sign up</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
-</header>
-<nav class="search">
-    <a id="index" href="index.html">Front page</a>
-    <a id="search" href="search.html">Search</a>
-    <a id="details" href="details.html">Details</a>
 </nav>
-<div id="signInForm" class="form">
-    <form id="signIn" class="popUp" method="post" name="signIn" action="">
-        <p id="pSignInUserName">
-            <label for="signInUserName" id="lbSignInUserName">Username: </label>
-            <input id="signInUserName" type="text" placeholder="Please input your username.">
-        </p>
-        <p id="pSignInPassword">
-            <label for="signInPassword" id="lbSignInPassword">Password: </label>
-            <input id="signInPassword" type="password" placeholder="Please input your password.">
-        </p>
-        <p id="pVerify">
-            <label for="verify" id="lbVerify">Verify: </label>
-            <input id="verify" type="text" placeholder="Please input verify code.">
-            <span id="code">2411</span>
-        </p>
-        <p class="button">
-            <input class="submit" id="signInSubmit" name="signInSubmit" type="button" value="Sign In" onclick="checkSignIn()">
-            <input class="cancel" id="signInCancel" name="signInCancel" type="button" value="Cancel" onclick="closeMessage('signInForm', 'mask')">
-        </p>
-    </form>
+
+<!-- Modal -->
+<div class="modal fade" id="signInFormModal" tabindex="-1" role="dialog" aria-labelledby="signInFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signInFormModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signIn">
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signInUserName">User name: </label>
+                            <input type="text" class="form-control" id="signInUserName" placeholder="User name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signInPassword">Password: </label>
+                            <input type="text" class="form-control" id="signInPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-8 mb-3">
+                            <label for="verify">Verify: </label>
+                            <input type="text" class="form-control" id="verify" placeholder="Verify code">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="code">Code: </label>
+                            <a id="code" href="javascript:changeVerify()" class="badge badge-light">2144</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="signInSubmit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="signUpForm" class="form">
-    <form id="signUp" class="popUp" method="post" name="signUp" action="">
-        <p id="pSignUpUserName">
-            <label for="signUpUserName" id="lbSignUpUserName">Username: </label>
-            <input id="signUpUserName" type="text" placeholder="Please input your username." onblur="checkSignUpUserName(this.value)"><br/>
-            <span id="alertUserName" class="alert"></span>
-        </p>
-        <p id="pPassword">
-            <label for="signUpPassword" id="lbSignUpPassword">Password: </label>
-            <input id="signUpPassword" type="password" placeholder="Please input your password." onblur="checkSignUpPassword(this.value)"><br/>
-            <span id="alertPassword" class="alert"></span>
-        </p>
-        <p id="pPasswordConfirm">
-            <label for="signUpPasswordConfirm" id="lbSignUpPasswordConfirm">Confirm password: </label>
-            <input id="signUpPasswordConfirm" type="password" placeholder="Please confirm your password." onblur="checkSignUpPasswordConfirm(this.value)"><br/>
-            <span id="alertPasswordConfirm" class="alert"></span>
-        </p>
-        <p id="pPhone">
-            <label for="phone" id="lbPhone">Phone: </label>
-            <input id="phone" type="text" placeholder="Please input your phone. " onblur="checkSignUpPhone(this.value)"><br/>
-            <span id="alertPhone" class="alert"></span>
-        </p>
-        <p class="button">
-            <input class="submit" id="signUpSubmit" name="signUpSubmit" type="button" value="Sign Up" onclick="checkSignUp()">
-            <input class="cancel" id="signUpCancel" name="signUpCancel" type="button" value="Cancel" onclick="closeMessage('signUpForm', 'mask')">
-        </p>
-    </form>
+
+<!-- Modal -->
+<div class="modal fade" id="signUpFormModal" tabindex="-1" role="dialog" aria-labelledby="signInFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpFormModalLabel">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signUp">
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpUserName">User name: </label>
+                            <input type="text" class="form-control" id="signUpUserName" placeholder="User name" onblur="checkSignUpUserName(this.value)">
+                            <span id="alertUserName" class="alert"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpPassword">Password: </label>
+                            <input type="password" class="form-control" id="signUpPassword" placeholder="Password" onblur="checkSignUpPassword(this.value)">
+                            <span id="alertPassword" class="alert"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpPasswordConfirm">Confirm Password: </label>
+                            <input type="password" class="form-control" id="signUpPasswordConfirm" placeholder="Confirm password" onblur="checkSignUpPasswordConfirm(this.value)">
+                            <span id="alertPasswordConfirm" class="alert"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpPhone">Phone: </label>
+                            <input type="text" class="form-control" id="signUpPhone" placeholder="Phone" onblur="checkSignUpPhone(this.value)">
+                            <span id="alertPhone" class="alert"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="signUpSubmit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="mask"></div>
+
 <main class="search">
     <h4 id="searchResult">Search results:</h4>
     <form id="sort">
@@ -187,7 +235,7 @@
     </div>
     <div id="pagination">
         <ul id="ulPagination">
-            <li><a href="searchNull.html" id="ulPaginationPre">&lt;</a></li>
+            <li><a href="#" id="ulPaginationPre">&lt;</a></li>
             <li><a href="#" id="ulPagination1">1</a></li>
             <li><a href="#" id="ulPagination2">2</a></li>
             <li><a href="#" id="ulPagination3">3</a></li>
@@ -212,9 +260,12 @@
         </ul>
     </div>
 </main>
-<footer>
-    Produced and maintained by HNoodles in 2018
+<footer class="footer navbar navbar-dark bg-dark">
+    <div class="navbar-text m-auto">Produced and maintained by HNoodles in 2018</div>
 </footer>
-<script src="js/allJs.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/jsSignIn.js"></script>
 </body>
 </html>

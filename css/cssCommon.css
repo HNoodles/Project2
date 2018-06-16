@@ -43,8 +43,9 @@ form.popUp input {
     padding: 0.5em;
 }
 
-form.popUp span.alert {
+span.alert {
     color: red;
+    font-size: 10pt;
 }
 
 form.popUp span#code {

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="css/cssReset.css">-->
     <link rel="stylesheet" href="css/cssCommon.css">
     <link rel="stylesheet" href="css/cssIndex.css">
     <title>Art Store</title>
@@ -13,15 +12,15 @@
 <body class="index">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="index.html"><strong>Art Store</strong></a>
-    <span class="navbar-text mx-2">Where you find <strong>genius</strong> and <strong>extraordinary</strong></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <span class="navbar-text mx-2">Where you find <strong>genius</strong> and <strong>extraordinary</strong></span>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">Front Page <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Front Page<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="details.html">Details</a>
@@ -30,7 +29,7 @@
                 <a class="nav-link" href="" data-toggle="modal" data-target="#signInFormModal">Sign in</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="" >Sign up</a>
+                <a class="nav-link" href="" data-toggle="modal" data-target="#signUpFormModal">Sign up</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -121,151 +120,88 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate>
+                <form id="signIn">
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
+                        <div class="col mb-3">
                             <label for="signInUserName">User name: </label>
-                            <input type="text" class="form-control" id="signInUserName" placeholder="User name" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="signInPassword">Password: </label>
-                            <input type="text" class="form-control" id="signInPassword" placeholder="Password" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustomUsername">Username</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
-                            </div>
+                            <input type="text" class="form-control" id="signInUserName" placeholder="User name">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom03">City</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom04">State</label>
-                            <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom05">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
+                        <div class="col mb-3">
+                            <label for="signInPassword">Password: </label>
+                            <input type="text" class="form-control" id="signInPassword" placeholder="Password">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div>
+                    <div class="form-row">
+                        <div class="col-md-8 mb-3">
+                            <label for="verify">Verify: </label>
+                            <input type="text" class="form-control" id="verify" placeholder="Verify code">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="code">Code: </label>
+                            <a id="code" href="javascript:changeVerify()" class="badge badge-light">2144</a>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
                 </form>
-
-                <script>
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function() {
-                        'use strict';
-                        window.addEventListener('load', function() {
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.getElementsByClassName('needs-validation');
-                            // Loop over them and prevent submission
-                            var validation = Array.prototype.filter.call(forms, function(form) {
-                                form.addEventListener('submit', function(event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add('was-validated');
-                                }, false);
-                            });
-                        }, false);
-                    })();
-                </script>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline-primary">Submit</button>
+                <button type="button" id="signInSubmit" class="btn btn-outline-primary">Submit</button>
             </div>
         </div>
     </div>
 </div>
 
-<div id="" class="form">
-    <form id="signIn" class="popUp" method="post" name="signIn" action="">
-        <p id="pSignInUserName">
-            <label for="" id="lbSignInUserName">Username: </label>
-            <input type="text" placeholder="Please input your username.">
-        </p>
-        <p id="pSignInPassword">
-            <label for="" id="lbSignInPassword">Password: </label>
-            <input type="password" placeholder="Please input your password.">
-        </p>
-        <p id="pVerify">
-            <label for="verify" id="lbVerify">Verify: </label>
-            <input id="verify" type="text" placeholder="Please input verify code.">
-            <span id="code">2411</span>
-        </p>
-        <p class="button">
-            <input class="submit" id="signInSubmit" name="signInSubmit" type="button" value="Sign In" onclick="checkSignIn()">
-            <input class="cancel" id="signInCancel" name="signInCancel" type="button" value="Cancel" onclick="closeMessage('signInForm', 'mask')">
-        </p>
-    </form>
+<!-- Modal -->
+<div class="modal fade" id="signUpFormModal" tabindex="-1" role="dialog" aria-labelledby="signInFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpFormModalLabel">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signUp">
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpUserName">User name: </label>
+                            <input type="text" class="form-control" id="signUpUserName" placeholder="User name" onblur="checkSignUpUserName(this.value)">
+                            <span id="alertUserName" class="alert"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpPassword">Password: </label>
+                            <input type="password" class="form-control" id="signUpPassword" placeholder="Password" onblur="checkSignUpPassword(this.value)">
+                            <span id="alertPassword" class="alert"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpPasswordConfirm">Confirm Password: </label>
+                            <input type="password" class="form-control" id="signUpPasswordConfirm" placeholder="Confirm password" onblur="checkSignUpPasswordConfirm(this.value)">
+                            <span id="alertPasswordConfirm" class="alert"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="signUpPhone">Phone: </label>
+                            <input type="text" class="form-control" id="signUpPhone" placeholder="Phone" onblur="checkSignUpPhone(this.value)">
+                            <span id="alertPhone" class="alert"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="signUpSubmit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="signUpForm" class="form">
-    <form id="signUp" class="popUp" method="post" name="signUp" action="">
-        <p id="pSignUpUserName">
-            <label for="signUpUserName" id="lbSignUpUserName">Username: </label>
-            <input id="signUpUserName" type="text" placeholder="Please input your username." onblur="checkSignUpUserName(this.value)"><br/>
-            <span id="alertUserName" class="alert"></span>
-        </p>
-        <p id="pPassword">
-            <label for="signUpPassword" id="lbSignUpPassword">Password: </label>
-            <input id="signUpPassword" type="password" placeholder="Please input your password." onblur="checkSignUpPassword(this.value)"><br/>
-            <span id="alertPassword" class="alert"></span>
-        </p>
-        <p id="pPasswordConfirm">
-            <label for="signUpPasswordConfirm" id="lbSignUpPasswordConfirm">Confirm password: </label>
-            <input id="signUpPasswordConfirm" type="password" placeholder="Please confirm your password." onblur="checkSignUpPasswordConfirm(this.value)"><br/>
-            <span id="alertPasswordConfirm" class="alert"></span>
-        </p>
-        <p id="pPhone">
-            <label for="phone" id="lbPhone">Phone: </label>
-            <input id="phone" type="text" placeholder="Please input your phone. " onblur="checkSignUpPhone(this.value)"><br/>
-            <span id="alertPhone" class="alert"></span>
-        </p>
-        <p class="button">
-            <input class="submit" id="signUpSubmit" name="signUpSubmit" type="button" value="Sign Up" onclick="checkSignUp()">
-            <input class="cancel" id="signUpCancel" name="signUpCancel" type="button" value="Cancel" onclick="closeMessage('signUpForm', 'mask')">
-        </p>
-    </form>
-</div>
-<div id="mask"></div>
 
 <main class="index">
     <div class="container-fluid my-3">
@@ -318,6 +254,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="js/allJs.js"></script>
+<script src="js/jsSignIn.js"></script>
+<script src="js/jsIndex.js"></script>
 </body>
 </html>
