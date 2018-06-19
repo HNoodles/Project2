@@ -8,10 +8,7 @@ $tel = isset($_POST["signUpPhone"]) ? $_POST["signUpPhone"]:"";
 $address = isset($_POST["signUpAddress"]) ? $_POST["signUpAddress"]:"";
 
 // connect the database
-$connection = new mysqli("localhost", "root", "", "art_store");
-if ($connection->connect_errno) {
-    die($connection->connect_error);
-}
+include_once "connect.php";
 
 $sql = "INSERT INTO users (`name`, `email`, `password`, `tel`, `address`) 
 VALUES ('$username', '$email', '$password', '$tel', '$address')";

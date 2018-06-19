@@ -1,8 +1,7 @@
 <?php
-$connection = new mysqli("localhost", "root", "", "art_store");
-if ($connection->connect_errno) {
-    die($connection->connect_error);
-}
+
+// connect the database
+include_once "connect.php";
 
 $sql = 'select * from users order by userID';
 
