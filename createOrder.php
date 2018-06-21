@@ -87,13 +87,30 @@ VALUES ('$userID', $currentPrice)";
             // add orderID to the work
             $sqlArtworks = "UPDATE artworks SET orderID = ".$rowOrderID['orderID']." WHERE artworkID = ".$rowWork['artworkID'];
             $connection->query($sqlArtworks);
+
+            // find the solder
+            $sqlSolder = "SELECT * FROM users";
+            $resultSolder = $connection->query($sqlSolder);
+            while ($rowSolder = $resultSolder->fetch_array()) {
+                if ($rowSolder['userID'] == $rowWork['ownerID']) {
+                    break;
+                }
+            }
+
+            // release result
+            $resultSolder->close();
+
+            // add balance to the solder
+            $newSolderBalance = $rowSolder['balance'] + $rowWork['price'];
+            $sqlSolderBalance = "UPDATE users SET balance = $newSolderBalance WHERE userID = ".$rowSolder['userID'];
+            $connection->query($sqlSolderBalance);
         }
 
         // delete user's cart
         $sqlDeleteAll = "DELETE FROM carts WHERE userID = $userID";
         $connection->query($sqlDeleteAll);
 
-        // update balance
+        // update user's balance
         $balance = $balance - $currentPrice;
         $sqlBalance = "UPDATE users SET balance = $balance WHERE userID = $userID";
         $connection->query($sqlBalance);
