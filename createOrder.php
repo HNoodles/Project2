@@ -4,7 +4,6 @@
 $userID = isset($_GET['userID']) ? $_GET['userID']:null;
 $totalPrice = isset($_GET['totalPrice']) ? $_GET['totalPrice']:null;
 $balance = isset($_GET['balance']) ? $_GET['balance']:null;
-$date = date('y-m-d h:i:s', time());
 
 // connect the database
 include_once "connect.php";
@@ -55,8 +54,8 @@ if ($response == "workBought") {// work has been bought by others
     echo "Some works' price has been changed. Please refresh the page.";
 } else {// every thing clear
     // add to orders
-    $sqlOrder = "INSERT INTO orders (`ownerID`, `sum`, `timeCreated`) 
-VALUES ('$userID', '$currentPrice', '$date')";
+    $sqlOrder = "INSERT INTO orders (`ownerID`, `sum`) 
+VALUES ('$userID', '$currentPrice')";
     if ($connection->query($sqlOrder)) {// add to order successfully
         // get order id
         $sqlOrderID = "SELECT * FROM orders ORDER BY timeCreated DESC";

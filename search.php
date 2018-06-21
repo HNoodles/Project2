@@ -56,6 +56,9 @@ if (isset($_GET['searchText']) && isset($_GET['searchBy'])) {
                         <a class="nav-link" href="cart.php">Cart</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="release.php">Release</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="signOut.php?location=<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">Sign out</a>
                     </li>
                     <?php
@@ -68,6 +71,9 @@ if (isset($_GET['searchText']) && isset($_GET['searchBy'])) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="cart.php">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="release.php">Release</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="signOut.php?location=<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">Sign out</a>
@@ -283,9 +289,9 @@ include_once "signInModal.php";
 
                         ?>
                         <li class="page-item"><a id="aFirstPage" class="page-link" href="javascript:void(0)"
-                                                 onclick="toPage(1,<?php echo '`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">First</a></li>
+                                                 onclick="ajaxToPage(1,<?php echo '`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">First</a></li>
                         <li class="page-item"><a id="aPreviousPage" class="page-link" href="javascript:void(0)"
-                                                 onclick="toPage(<?php echo $prePage.','.'`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">Previous</a></li>
+                                                 onclick="ajaxToPage(<?php echo $prePage.','.'`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">Previous</a></li>
                         <?php
 
                     }
@@ -297,9 +303,9 @@ include_once "signInModal.php";
 
                         ?>
                         <li class="page-item"><a id="aNextPage" class="page-link" href="javascript:void(0)"
-                                                 onclick="toPage(<?php echo $nextPage.','.'`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">Next</a></li>
+                                                 onclick="ajaxToPage(<?php echo $nextPage.',`'.$sqlCommon.'`,'.$pageSize.','.$totalPage ?>)" >Next</a></li>
                         <li class="page-item"><a id="aLastPage" class="page-link" href="javascript:void(0)"
-                                                 onclick="toPage(<?php echo $lastPage.','.'`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">Last</a></li>
+                                                 onclick="ajaxToPage(<?php echo $lastPage.','.'`'.$sqlCommon.'`'.','.$pageSize.','.$totalPage ?>)">Last</a></li>
                         <?php
 
                     }
@@ -333,6 +339,7 @@ include_once "signInModal.php";
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 <script src="js/jsSignIn.js"></script>
 <script src="js/jsSearch.js"></script>
 <script src="js/jsSort.js"></script>

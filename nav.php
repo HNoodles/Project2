@@ -36,6 +36,9 @@
                         <a class="nav-link" href="cart.php">Cart</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="release.php">Release</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="signOut.php?location=<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">Sign out</a>
                     </li>
                     <?php

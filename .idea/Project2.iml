@@ -11,5 +11,6 @@
     <orderEntry type="library" name="jquery-3.3.1.slim" level="application" />
     <orderEntry type="library" name="jquery.slim" level="application" />
     <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="jquery-1.8.0" level="application" />
   </component>
 </module>

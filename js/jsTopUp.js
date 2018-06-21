@@ -5,7 +5,6 @@ const topUpAmount = document.getElementById("topUpAmount");
 
 topUpSubmit.onclick = function () {
     if ((topUpAmount.value <= 0) || (!/^\d+$/.test(topUpAmount.value))) {// less than 0 or not integer
-        alert(topUpAmount.value);
         alertTopUp.innerText = "Please enter a valid amount.";
     } else {// success
         alertTopUp.innerText = "";
