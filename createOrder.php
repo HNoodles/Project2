@@ -55,7 +55,7 @@ if ($response == "workBought") {// work has been bought by others
 } else {// every thing clear
     // add to orders
     $sqlOrder = "INSERT INTO orders (`ownerID`, `sum`) 
-VALUES ('$userID', '$currentPrice')";
+VALUES ('$userID', $currentPrice)";
     if ($connection->query($sqlOrder)) {// add to order successfully
         // get order id
         $sqlOrderID = "SELECT * FROM orders ORDER BY timeCreated DESC";

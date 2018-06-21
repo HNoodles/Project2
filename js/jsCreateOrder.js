@@ -30,7 +30,7 @@ btBuy.onclick = function () {
             }
         };
 
-        let url = "buy.php";
+        let url = "createOrder.php";
 
         url = addURLParam(url,"userID",userID.value);
         url = addURLParam(url,"totalPrice",totalPrice.value);

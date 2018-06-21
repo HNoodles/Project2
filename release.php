@@ -1,3 +1,10 @@
+<?php
+
+// set history
+include_once "setHistory.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +16,6 @@
 <body>
 
 <?php
-
-session_start();
 
 if(!isset($_POST['signInUserName'])) {
     if (!isset($_SESSION['signInUserName'])) {// not signed in
@@ -89,6 +94,9 @@ if(!isset($_POST['signInUserName'])) {
         </nav>
 
         <?php
+
+        // show history
+        include_once "showHistory.php";
 
         // sign in form
         include_once "signInModal.php";

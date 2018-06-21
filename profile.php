@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+// set history
+include_once "setHistory.php";
+
 
 if(!isset($_POST['signInUserName'])) {
     if (!isset($_SESSION['signInUserName'])) {// not signed in
@@ -103,6 +105,9 @@ include_once "signInModal.php";
 </nav>
 
 <?php
+
+// show history
+include_once "showHistory.php";
 
 // insert sign in modal
 include_once "signInModal.php";
@@ -373,7 +378,7 @@ $resultMyArtWorks->close();
                         <?php
 
                         // get my sold works
-                        $sqlMySoldWorks = "SELECT * FROM artworks WHERE ownerID = ".$user['userID']." AND orderID != NULL";
+                        $sqlMySoldWorks = "SELECT * FROM artworks WHERE ownerID = ".$user['userID']." AND orderID IS NOT NULL";
                         $resultMySoldWorks = $connection->query($sqlMySoldWorks);
 
                         // output rows of sold outs

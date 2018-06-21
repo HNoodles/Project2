@@ -1,5 +1,8 @@
 <?php
 
+// set history
+include_once "setHistory.php";
+
 // connect the database
 include_once "connect.php";
 
@@ -35,7 +38,6 @@ if (isset($_GET['searchText']) && isset($_GET['searchBy'])) {
             </li>
 
             <?php
-            session_start();
 
             if(!isset($_POST['signInUserName'])) {
                 if (!isset($_SESSION['signInUserName'])) {
@@ -44,7 +46,7 @@ if (isset($_GET['searchText']) && isset($_GET['searchBy'])) {
                         <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signUp.html">Sign up</a>
+                        <a class="nav-link" href="signUp.php">Sign up</a>
                     </li>
                     <?php
                 } else {
@@ -110,6 +112,9 @@ if (isset($_GET['searchText']) && isset($_GET['searchBy'])) {
 </nav>
 
 <?php
+
+// show history
+include_once "showHistory.php";
 
 // insert sign in modal
 include_once "signInModal.php";
@@ -366,8 +371,6 @@ include_once "signInModal.php";
 <body>
 
 <?php
-
-session_start();
 
 // insert nav
 include_once "nav.php";

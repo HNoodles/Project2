@@ -1,3 +1,10 @@
+<?php
+
+// set history
+include_once "setHistory.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,7 @@
     <title>Art Store</title>
 </head>
 <body class="index">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.php"><strong>Art Store</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,7 +30,6 @@
             </li>
 
             <?php
-                session_start();
 
                 if(!isset($_POST['signInUserName'])) {
                     if (!isset($_SESSION['signInUserName'])) {
@@ -32,7 +38,7 @@
                             <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signUp.html">Sign up</a>
+                            <a class="nav-link" href="signUp.php">Sign up</a>
                         </li>
                         <?php
                     } else {
@@ -98,6 +104,9 @@
 </nav>
 
 <?php
+
+// show history
+include_once "showHistory.php";
 
 // connect the database
 include_once "connect.php";

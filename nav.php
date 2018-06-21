@@ -20,7 +20,7 @@
                         <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signUp.html">Sign up</a>
+                        <a class="nav-link" href="signUp.php">Sign up</a>
                     </li>
 
                     <?php
@@ -91,3 +91,10 @@
         </form>
     </div>
 </nav>
+
+<?php
+
+// show history
+include_once "showHistory.php";
+
+?>
