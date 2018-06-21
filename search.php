@@ -19,7 +19,6 @@ if (isset($_GET['searchText']) && isset($_GET['searchBy'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cssCommon.css">
-    <link rel="stylesheet" href="css/cssSearch.css">
     <title>Search for <?php echo $searchText ?></title>
 </head>
 <body>
@@ -122,8 +121,6 @@ include_once "signInModal.php";
 ?>
 
 <main class="search">
-    <h5>Search Results FOR "<?php echo $searchText ?>" BY <?php foreach ($searchBy as $value) {echo $value." ";} ?>:</h5>
-
 
     <?php
 
@@ -146,35 +143,48 @@ include_once "signInModal.php";
 
         ?>
 
-        <form id="sort" name="sort" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">
-            Sort by:
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="filter" id="filterPrice" value="price" checked>
-                <label class="form-check-label" for="filterPrice">Price</label>
+            <div class="row m-2">
+                <div class="col-sm-8">
+                    <h5>Search Results FOR "<?php echo $searchText ?>" BY <?php foreach ($searchBy as $value) {echo $value." ";} ?>:</h5>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <form id="sort" name="sort" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">
+                        Sort by:
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="filterPrice" value="price" checked>
+                            <label class="form-check-label" for="filterPrice">Price</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="filterView" value="view">
+                            <label class="form-check-label" for="filterView">View</label>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="filter" id="filterView" value="view">
-                <label class="form-check-label" for="filterView">View</label>
-            </div>
-        </form>
-
         <?php
 
         } else if ($sortBy == "view") {// view checked
 
             ?>
 
-            <form id="sort" name="sort" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">
-                Sort by:
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="filter" id="filterPrice" value="price">
-                    <label class="form-check-label" for="filterPrice">Price</label>
+            <div class="row m-2">
+                <div class="col-sm-8">
+                    <h5>Search Results FOR "<?php echo $searchText ?>" BY <?php foreach ($searchBy as $value) {echo $value." ";} ?>:</h5>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="filter" id="filterView" value="view" checked>
-                    <label class="form-check-label" for="filterView">View</label>
+                <div class="col-sm-4 text-right">
+                    <form id="sort" name="sort" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">
+                        Sort by:
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="filterPrice" value="price">
+                            <label class="form-check-label" for="filterPrice">Price</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="filterView" value="view" checked>
+                            <label class="form-check-label" for="filterView">View</label>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
 
             <?php
 
@@ -183,17 +193,24 @@ include_once "signInModal.php";
 
         ?>
 
-        <form id="sort" name="sort" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">
-            Sort by:
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="filter" id="filterPrice" value="price">
-                <label class="form-check-label" for="filterPrice">Price</label>
+        <div class="row m-2">
+            <div class="col-sm-8">
+                <h5>Search Results FOR "<?php echo $searchText ?>" BY <?php foreach ($searchBy as $value) {echo $value." ";} ?>:</h5>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="filter" id="filterView" value="view">
-                <label class="form-check-label" for="filterView">View</label>
+            <div class="col-sm-4 text-right">
+                <form id="sort" name="sort" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">
+                    Sort by:
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="filter" id="filterPrice" value="price">
+                        <label class="form-check-label" for="filterPrice">Price</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="filter" id="filterView" value="view">
+                        <label class="form-check-label" for="filterView">View</label>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
 
         <?php
 
@@ -365,7 +382,6 @@ include_once "signInModal.php";
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cssCommon.css">
-    <link rel="stylesheet" href="css/cssSearch.css">
     <title>Search</title>
 </head>
 <body>
