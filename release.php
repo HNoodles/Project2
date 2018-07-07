@@ -289,6 +289,12 @@ if(!isset($_POST['signInUserName'])) {
                     </form>
                 </div>
             </main>
+         <?php
+
+
+        }
+
+        ?>
 
 <footer class="footer navbar navbar-dark bg-dark">
     <div class="navbar-text m-auto">Produced and maintained by HNoodles in 2018</div>
@@ -305,10 +311,7 @@ if(!isset($_POST['signInUserName'])) {
 </html>
 
 
-            <?php
-
-
-        }
+   <?php
 
         // close database
         $connection->close();
